@@ -109,7 +109,9 @@ A **SQL injection (SQLi)** attack occurs when an attacker enters additional, mal
 
 **Example of Malicious Query:**
 If the input is `' or 1=1;--`, the resulting executed query is:
-$$\text{SELECT * FROM Customers WHERE name = '' or 1=1;--'}$$
+```
+SELECT * FROM Customers WHERE name = '' or 1=1;--'
+```
 
 ### Protection Against SQL Injection
 
@@ -119,6 +121,46 @@ $$\text{SELECT * FROM Customers WHERE name = '' or 1=1;--'}$$
 ### Monitoring
 
 **Web Server Logs** record activity and can be searched for indicators of SQLi attacks (e.g., the phrase `' or 1=1`). **SIEM systems** centralize logs and can be configured to alert administrators when suspicious patterns are detected.
+
+## Other Application Attacks
+
+Many attacks target server applications by exploiting vulnerabilities related to **memory management** and improper **input validation**.
+
+### Memory Vulnerabilities
+
+These vulnerabilities often arise from poor memory management techniques, leading to application or system instability.
+
+| Vulnerability | Description | Security Concern / Indicator |
+| :--- | :--- | :--- |
+| **Memory Leak** | A bug where an application reserves memory for use but **never releases it**, consuming increasing amounts of memory over time. | In extreme cases, causes the operating system to crash. **Indicator:** System runs progressively **slower** until rebooted. |
+| **Buffer Overflow** | Occurs when an application receives **more or unexpected data** than the memory buffer is allocated to handle. The excess data "spills over" into adjacent memory. | Exposes memory locations that should be protected. An attacker exploits this with **memory injection** to write and execute malicious code. |
+| **Integer Overflow** | Occurs when an application receives a **numeric value that is too large** for the allocated memory space to store. | Causes the application to produce **inaccurate results** (the number wraps around to a small/negative number). |
+
+**Defense:** Keep systems updated with patches, and use **input validation** and secure memory management techniques in code.
+
+### Other Injection Attacks
+
+Injection attacks occur when an attacker inserts executable code or commands into data input fields.
+
+| Attack Type | Target / Protocol | Description | Protection |
+| :--- | :--- | :--- | :--- |
+| **DLL Injection** | System Memory / Running Process | The attacker **injects a malicious Dynamic Link Library (DLL)** file into a running process's memory space and causes it to execute functions within the DLL. | Secure coding, system patching. |
+| **LDAP Injection** | LDAP Database (e.g., Active Directory) | Exploits web applications that craft **LDAP queries** based on user input, allowing the attacker to retrieve or modify data beyond their intended scope. | Strong **Input Validation**. |
+| **XML Injection** | XML Data Transfer | The attacker inserts malicious XML tags into the input, which are processed by the receiving application, potentially **creating unwanted accounts** or corrupting data. | Strong **Input Validation**; detailed logging/auditing. |
+| **Directory Traversal** | File System / Web Server | Attempts to access files outside the allowed web directory by using directory navigation commands (e.g., `../../`) to traverse the file structure. | Block use of directory navigation commands in input and secure the file system permissions. |
+
+### Cross-Site Scripting (XSS) Attacks
+
+**Cross-site scripting (XSS)** is a web application vulnerability that allows attackers to inject malicious scripts (like JavaScript) into webpages viewed by other users.
+
+| XSS Type | How it Works | Storage Location |
+| :--- | :--- | :--- |
+| **Reflected XSS** (Non-Persistent) | Attacker crafts a malicious URL (often in a phishing email) which contains a script. When the user clicks the link, the server "reflects" the malicious script back to the user's browser, and the browser executes it. | **Not Stored** on the server. |
+| **Stored XSS** (Persistent) | Attacker injects a malicious script into a field that the web application stores (e.g., a comment or user profile in a database). When any subsequent user views that stored data, the script is retrieved and executed by their browser. | **Stored** in a database or other trusted location. |
+
+**Primary Protection Against XSS:**
+* **Sophisticated Input Validation** (the strongest defense).
+* **Security Encoding/Sanitization Libraries** (e.g., those recommended by **OWASP**) to sanitize untrusted data before displaying it. Developers should **avoid methods that allow displaying untrusted data**.
 
 ## Automation and Orchestration for Secure Operations
 
