@@ -27,3 +27,11 @@ I chose to organize my notes according to this book rather than the standard Com
 - [Implementing Policies to Mitigate Risks](Chapter_11_IPMR.md)  
 
 I’m documenting my journey and creating concise notes to reinforce my understanding and to help others studying for Security+.
+
+### ⭐ Post-Study Advice
+
+> After covering the whole book, I took the test provided in the book and scored **85 / 90**!
+> 
+> **Crucial Lesson Learned:** All the mistakes were because of not reading the questions thoroughly.
+> 
+> **✅ READ QUESTIONS CAREFULLY!**
