@@ -14,16 +14,16 @@ I chose to organize my notes according to this book rather than the standard Com
 
 ## 📂 Topics Covered (Book-Aligned Structure)
 
-- Mastering Security Basics  
-- Understanding Identity and Access Management  
-- Exploring Network Technologies and Tools  
-- Securing Your Network  
-- Securing Hosts and Data  
-- Comparing Threats, Vulnerabilities, and Common Attacks  
-- Protecting Against Advanced Attacks  
-- Using Risk Management Tools  
-- Implementing Controls to Protect Assets  
-- Understanding Cryptography and PKI  
-- Implementing Policies to Mitigate Risks  
+- [Mastering Security Basics](Chapter_1_MSB.md)  
+- [Understanding Identity and Access Management](Chapter_2_UI_AM.md)  
+- [Exploring Network Technologies and Tools](Chapter_3_ENT_T.md)  
+- [Securing Your Network](Chapter_4_SYN.md)  
+- [Securing Hosts and Data](Chapter_5_SH_D.md)  
+- [Comparing Threats, Vulnerabilities, and Common Attacks](Chapter_6_CTV_CA.md)  
+- [Protecting Against Advanced Attacks](Chapter_7_PAAA.md)  
+- [Using Risk Management Tools](Chapter_8_URMT.md)  
+- [Implementing Controls to Protect Assets](Chapter_9_ICPA.md)  
+- [Understanding Cryptography and PKI](Chapter_10_UC_PKI.md)  
+- [Implementing Policies to Mitigate Risks](Chapter_11_IPMR.md)  
 
 I’m documenting my journey and creating concise notes to reinforce my understanding and to help others studying for Security+.
